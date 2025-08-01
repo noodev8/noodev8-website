@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NooDev8 - Smart Software Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* BASE RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* NAVIGATION */
+    .site-nav {
+      background-color: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .site-nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1F41AF;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: #64748b;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #1F41AF;
+    }
+
+    .cta-button {
+      background-color: #1F41AF;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .cta-button:hover {
+      background-color: #1a3a9e;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(31, 65, 175, 0.3);
+    }
+
+    /* HERO */
+    .hero {
+      background: #BEEEFF;
+      background: radial-gradient(at center, #BEEEFF, #1F41AF);
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      opacity: 0.3;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .hero h2 {
+      font-size: 1.375rem;
+      margin-bottom: 16px;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+    }
+
+    .hero p {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 32px;
+      font-size: 1rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero .btn {
+      background-color: white;
+      color: #1F41AF;
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-block;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero .btn:hover {
+      background-color: #f8fafc;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #1e293b;
+      font-weight: 700;
+    }
+
+    /* PRODUCTS */
+    .products {
+      background-color: #ffffff;
+    }
+
+    .app-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .app-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+    }
+
+    .app-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border-color: #1F41AF;
+    }
+
+    .app-images {
+      flex: 0 0 400px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app-banner {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      object-position: center;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .screenshot-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px;
+      gap: 8px;
+      background-color: #f8fafc;
+      flex-grow: 1;
+    }
+
+    .screenshot-row img {
+      width: 32%;
+      height: 140px;
+      border-radius: 6px;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.3s;
+    }
+
+    .screenshot-row img:hover {
+      transform: scale(1.04);
+    }
+
+    .app-content {
+      flex: 1;
+      padding: 32px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .app-content h3 {
+      font-size: 1.75rem;
+      margin-bottom: 16px;
+      color: #1e293b;
+      font-weight: 600;
+    }
+
+    .app-content p {
+      font-size: 1rem;
+      color: #64748b;
+      margin-bottom: 20px;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      align-self: flex-start;
+    }
+
+    .status.available {
+      background-color: #dcfce7;
+      color: #166534;
+    }
+
+    .status.coming {
+      background-color: #fef3c7;
+      color: #92400e;
+    }
+
+
+
+    /* FOOTER */
+    footer {
+      background: #1e293b;
+      color: white;
+      padding: 60px 20px 30px;
+    }
+
+    .footer-cols {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-cols h4 {
+      font-size: 1.125rem;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .footer-cols ul {
+      list-style: none;
+    }
+
+    .footer-cols ul li {
+      margin-bottom: 8px;
+      font-size: 0.875rem;
+      color: #94a3b8;
+    }
+
+    .footer-cols ul li a {
+      color: #94a3b8;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-cols ul li a:hover {
+      color: white;
+    }
+
+    .copyright {
+      text-align: center;
+      font-size: 0.875rem;
+      color: #94a3b8;
+      border-top: 1px solid #334155;
+      padding-top: 20px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero h2 {
+        font-size: 1.25rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      .app-card {
+        flex-direction: column;
+      }
+      .app-images {
+        flex: none;
+      }
+      .app-banner {
+        height: 200px;
+      }
+      .screenshot-row img {
+        height: 100px;
+      }
+      .app-content {
+        text-align: center;
+        padding: 24px;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="container">
+      <span class="logo">Noodev8</span>
+      <ul class="nav-links">
+        <li><a href="index.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a class="cta-button" href="contact.html">Get Started</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="container">
+      <h2>Innovative App Solutions for Modern Businesses</h2>
+      <p>We create powerful, intuitive applications that transform how businesses operate and connect with their customers. Our development team combines cutting-edge technology with user-centered design.</p>
+      <a href="#products" class="btn">Explore Our Products</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="products section" id="products">
+      <div class="container">
+        
+        <div class="app-grid">
+          <!-- SplitLeague -->
+          <a href="https://play.google.com/store/apps/details?id=com.noodev8.splitleague&hl=en_GB" class="app-card" target="_blank">
+            <div class="app-images">
+              <img src="images/splitleague-banner.png" alt="SplitLeague Hero" class="app-banner" />
+              <div class="screenshot-row">
+                <img src="images/screenshot1.jpg" alt="Screenshot 1" />
+                <img src="images/screenshot2.jpg" alt="Screenshot 2" />
+                <img src="images/screenshot3.jpg" alt="Screenshot 3" />
+              </div>
+            </div>
+            <div class="app-content">
+              <h3>SplitLeague</h3>
+              <p>Split League makes it easy to organize friendly leagues and tournaments for any game — from snooker, darts, and board games to video games and beyond.<br>
+<br>
+Create your own league, set custom rules, invite friends, and start playing! <br><br>After each match, simply enter the result and Split League will automatically update standings, calculate points, and generate the latest league table — all in real time.</p>
+              <span class="status available">Available Now</span>
+            </div>
+          </a>
+
+          <!-- SplitDine -->
+          <a href="https://play.google.com/store/apps/details?id=com.noodev8.splitdine2&hl=en" class="app-card" target="_blank">
+            <div class="app-images">
+              <img src="images/splitdine.png" alt="SplitDine Hero" class="app-banner" />
+              <div class="screenshot-row">
+                <img src="images/splitdine1.jpg" alt="Screenshot" />
+                <img src="images/splitdine2.jpg" alt="Screenshot" />
+                <img src="images/splitdine3.2.jpg" alt="Screenshot" />
+              </div>
+            </div>
+            <div class="app-content">
+              <h3>SplitDine</h3>
+              <p>Split Dine – Effortless Bill Splitting for Group Meals<br>
+<br>
+              Split Dine makes settling the bill with friends easy and stress free<br>
+              Whether it is a casual lunch or a big dinner event you can split costs fairly with no complicated math and no awkward conversations<br>
+<br>
+              Forget paper receipts and calculator stress<br>
+              Split Dine gives you a fast fair and flexible way to split any group bill<br>
+              Designed to keep dining social not stressful<br>
+<br>
+              Dine together<br>
+              Split smarter<br>
+              Download Split Dine today</p>
+              <span class="status available">Available Now</span>
+            </div>
+          </a>
+
+          <!-- coming soon -->
+          <div class="app-card">
+            <div class="app-images">
+              <img src="images/placeholder-banner.png" alt="Coming Soon" class="app-banner" />
+              <div class="screenshot-row">
+                <img src="images/placeholder1.png" alt="Screenshot" />
+                <img src="images/placeholder1.png" alt="Screenshot" />
+                <img src="images/placeholder1.png" alt="Screenshot" />
+              </div>
+            </div>
+            <div class="app-content">
+              <h3>The Nook Buffet</h3>
+              <p>Coming soon - an exciting new app that will revolutionize how you discover and enjoy local dining experiences. Stay tuned for more details!</p>
+              <span class="status coming">Coming Soon</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-cols">
+        <div>
+          <h4>Noodev8</h4>
+          <p>Smart software solutions for real-world business needs.</p>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <ul>
+            <li>Help Center</li>
+            <li>Documentation</li>
+            <li>Contact Support</li>
+          </ul>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2025 NooDev8. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

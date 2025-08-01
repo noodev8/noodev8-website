@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SplitLeague Terms and Conditions - NooDev8</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* BASE RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* NAVIGATION */
+    .site-nav {
+      background-color: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .site-nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1e40af;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: #64748b;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #1e40af;
+    }
+
+    .back-button {
+      background-color: #3b82f6;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
+
+    .back-button:hover {
+      background-color: #2563eb;
+      transform: translateY(-1px);
+    }
+
+    /* MAIN CONTENT */
+    .terms-header {
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .terms-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .terms-header p {
+      font-size: 1.125rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .terms-content {
+      background: white;
+      padding: 60px 0;
+    }
+
+    .last-updated {
+      background: #f1f5f9;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #475569;
+      font-weight: 500;
+    }
+
+    .terms-section {
+      margin-bottom: 32px;
+    }
+
+    .terms-section h2 {
+      font-size: 1.25rem;
+      color: #1e293b;
+      font-weight: 600;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #3b82f6;
+    }
+
+    .terms-section p {
+      margin-bottom: 12px;
+      color: #475569;
+      line-height: 1.7;
+    }
+
+    .terms-section ul {
+      margin: 12px 0;
+      padding-left: 20px;
+    }
+
+    .terms-section li {
+      margin-bottom: 6px;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    .contact-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .contact-box h3 {
+      color: #1e293b;
+      margin-bottom: 16px;
+    }
+
+    .contact-box p {
+      margin-bottom: 8px;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .email-link, .website-link {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .email-link:hover, .website-link:hover {
+      text-decoration: underline;
+    }
+
+    .stripe-link {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .stripe-link:hover {
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1e293b;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .copyright {
+      font-size: 0.875rem;
+      color: #94a3b8;
+      border-top: 1px solid #334155;
+      padding-top: 20px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .terms-header h1 {
+        font-size: 2rem;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .footer-links {
+        flex-direction: column;
+        gap: 16px;
+      }
+      
+      .terms-content {
+        padding: 40px 0;
+      }
+
+      .contact-info {
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html" class="logo">NooDev8</a>
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#products">Products</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <a class="back-button" href="index.html">← Back to Home</a>
+    </div>
+  </nav>
+
+  <header class="terms-header">
+    <div class="container">
+      <h1>SplitLeague Terms and Conditions</h1>
+      <p>Please read these terms carefully before using the SplitLeague application.</p>
+    </div>
+  </header>
+
+  <main class="terms-content">
+    <div class="container">
+      <div class="last-updated">
+        <strong>Effective and Last Updated Date: 22/04/2025</strong>
+      </div>
+
+      <section class="terms-section">
+        <h2>1. Acceptance of Terms</h2>
+        <p>By accessing or using SplitLeague, you agree to be bound by these Terms and Conditions. If you do not agree, please do not use the app or its services.</p>
+      </section>
+
+      <section class="terms-section">
+        <h2>2. Eligibility</h2>
+        <p>You must be at least 16 years old to use SplitLeague. By using the app, you confirm that you meet this requirement.</p>
+      </section>
+
+      <section class="terms-section">
+        <h2>3. Account Registration</h2>
+        <p>To access certain features, you must create an account. You agree to provide accurate and complete information and to keep it updated. You are responsible for maintaining the confidentiality of your account credentials.</p>
+      </section>
+
+      <section class="terms-section">
+        <h2>4. Use of the App</h2>
+        <p>You agree to:</p>
+        <ul>
+          <li>Use the app only for lawful purposes</li>
+          <li>Not misuse the app or interfere with its operation</li>
+          <li>Respect the privacy and rights of other users</li>
+        </ul>
+      </section>
+
+      <section class="terms-section">
+        <h2>5. Payments</h2>
+        <p>Payments made through SplitLeague (e.g., league dues, team contributions) are processed securely via Stripe. By making a payment, you agree to Stripe's <a href="https://stripe.com/legal" class="stripe-link" target="_blank">Terms of Service</a>.</p>
+        <p>We do not store your full payment information.</p>
+      </section>
+
+      <section class="terms-section">
+        <h2>6. Emails and Notifications</h2>
+        <p>By signing up, you consent to receive transactional emails (e.g., invites, match reminders) from Resend on behalf of SplitLeague. You can manage your notification settings in the app.</p>
+      </section>
+
+      <section class="terms-section">
+        <h2>7. Intellectual Property</h2>
+        <p>All content and code related to SplitLeague is the property of Noodev8. You may not reuse, reverse-engineer, or redistribute any part of the app without permission.</p>
+      </section>
+
+      <section class="terms-section">
+        <h2>8. Termination</h2>
+        <p>We may suspend or terminate access to the app at our discretion, without notice, if you violate these terms or engage in behavior that disrupts other users' experience.</p>
+      </section>
+
+      <section class="terms-section">
+        <h2>9. Disclaimer of Warranties</h2>
+        <p>SplitLeague is provided "as is." We make no guarantees regarding uptime, data accuracy, or uninterrupted access.</p>
+      </section>
+
+      <section class="terms-section">
+        <h2>10. Limitation of Liability</h2>
+        <p>To the maximum extent permitted by law, Noodev8 is not liable for any damages arising from your use of the app, including but not limited to loss of data or financial loss.</p>
+      </section>
+
+      <section class="terms-section">
+        <h2>11. Changes to Terms</h2>
+        <p>We may update these Terms at any time. Continued use of the app after changes are made constitutes acceptance of the updated Terms.</p>
+      </section>
+
+      <section class="terms-section">
+        <h2>12. Governing Law</h2>
+        <p>These Terms are governed by the laws of the United Kingdom, without regard to conflict of law principles.</p>
+      </section>
+
+      <div class="contact-box">
+        <h3>13. Contact</h3>
+        <p>For questions about these Terms, contact:</p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span>📧</span>
+            <a href="mailto:info@noodev8.com" class="email-link">info@noodev8.com</a>            
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#products">Products</a>
+        <a href="index.html#about">About</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <p class="copyright">&copy; 2025 NooDev8. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

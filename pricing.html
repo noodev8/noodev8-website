@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing - NooDev8</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* BASE RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* NAVIGATION */
+    .site-nav {
+      background-color: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .site-nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1F41AF;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: #64748b;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #1F41AF;
+    }
+
+    .cta-button {
+      background-color: #1F41AF;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .cta-button:hover {
+      background-color: #1a3a9e;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(31, 65, 175, 0.3);
+    }
+
+    /* HERO HEADER */
+    .hero {
+      background: #BEEEFF;
+      background: radial-gradient(at center, #BEEEFF, #1F41AF);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      opacity: 0.3;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 0;
+      font-size: 1.125rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* MAIN CONTENT */
+    .main-content {
+      padding: 60px 0;
+      min-height: calc(100vh - 200px);
+    }
+
+    /* FEATURES GRID */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 24px 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      border-color: #3b82f6;
+    }
+
+    .feature-card h4 {
+      margin-bottom: 12px;
+      color: #1e293b;
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+
+    .feature-card p {
+      color: #64748b;
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
+    /* PRICING SECTION */
+    .pricing-section {
+      background: white;
+      padding: 60px 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .pricing-section h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #1e293b;
+      font-weight: 700;
+    }
+
+    .pricing-section > p {
+      font-size: 1.125rem;
+      color: #64748b;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .pricing-tiers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+
+    .pricing-tier {
+      background: #f8fafc;
+      padding: 24px 20px;
+      border-radius: 12px;
+      border: 2px solid #e2e8f0;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .pricing-tier.featured {
+      border-color: #1F41AF;
+      background: #fefefe;
+    }
+
+    .pricing-tier:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .pricing-tier h4 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      color: #1e293b;
+      font-weight: 600;
+    }
+
+    .price {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #1F41AF;
+      margin-bottom: 8px;
+    }
+
+    .price span {
+      font-size: 1.25rem;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .price-description {
+      color: #64748b;
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+
+    .fast-track-option {
+      background: #f0f9ff;
+      border: 1px solid #1F41AF;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 24px;
+    }
+
+    .fast-track-text {
+      color: #1F41AF;
+      font-size: 0.95rem;
+      margin: 0;
+      text-align: center;
+    }
+
+    .fast-track-text strong {
+      font-weight: 600;
+    }
+
+    .price-options {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .price-option {
+      padding: 20px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .price-option.popular {
+      border-color: #1F41AF;
+      background: #f0f9ff;
+    }
+
+    .price-option .price {
+      font-size: 2rem;
+      margin-bottom: 4px;
+    }
+
+    .savings {
+      position: absolute;
+      top: -8px;
+      right: 12px;
+      background: #1F41AF;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .pricing-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 24px;
+    }
+
+    .pricing-features li {
+      padding: 8px 0;
+      color: #64748b;
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .pricing-features li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #10b981;
+      font-weight: bold;
+    }
+
+    .pricing-footer {
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .pricing-footer p {
+      font-size: 1.125rem;
+      color: #64748b;
+      margin-bottom: 24px;
+    }
+
+    .contact-cta {
+      background-color: #1F41AF;
+      color: white;
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-block;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+      font-size: 1.125rem;
+    }
+
+    .contact-cta:hover {
+      background-color: #1a3a9e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1e293b;
+      color: white;
+      padding: 60px 20px 30px;
+      margin-top: 80px;
+    }
+
+    .footer-cols {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-cols h4 {
+      font-size: 1.125rem;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .footer-cols ul {
+      list-style: none;
+    }
+
+    .footer-cols ul li {
+      margin-bottom: 8px;
+      font-size: 0.875rem;
+      color: #94a3b8;
+    }
+
+    .footer-cols ul li a {
+      color: #94a3b8;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-cols ul li a:hover {
+      color: white;
+    }
+
+    .copyright {
+      text-align: center;
+      font-size: 0.875rem;
+      color: #94a3b8;
+      border-top: 1px solid #334155;
+      padding-top: 20px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .page-title {
+        font-size: 2.5rem;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+      .pricing-section {
+        padding: 40px 20px;
+      }
+      .pricing-tiers {
+        grid-template-columns: 1fr;
+      }
+      .price-options {
+        flex-direction: column;
+      }
+      .price {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html" class="logo">Noodev8</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a class="cta-button" href="contact.html">Get Started</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <h1>Mobile App Development for Small Businesses</h1>
+      <p>Your own app — on the App Store and Google Play. Perfect for cafés, pubs, salons, and clubs. Fixed-price mobile apps starting from £1,900.</p>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      
+
+
+      <div class="pricing-section">
+        <h3>Mobile App Packages</h3>
+        <p>Fixed-price mobile apps starting from £1,900. Every app is published on both the Apple App Store and Google Play. No technical knowledge needed — we handle everything from build to launch.</p>
+
+        <div class="pricing-tiers">
+          <div class="pricing-tier">
+            <h4>Starter App</h4>
+            <div class="price">£1,900</div>
+            <p class="price-description">Simple promotional apps (menu, info, contact)</p>
+            <div class="fast-track-option">
+              <p class="fast-track-text">Need it faster? <strong>+£200 for fast track</strong> delivery</p>
+            </div>
+            <ul class="pricing-features">
+              <li>Your logo & colours</li>
+              <li>Up to 5 static screens (e.g. menu, about, contact)</li>
+              <li>App published on iOS and Android</li>
+              <li>14 days support</li>
+              <li>No login or server required</li>
+            </ul>
+          </div>
+
+          <div class="pricing-tier featured">
+            <h4>Business App</h4>
+            <div class="price">£2,900</div>
+            <p class="price-description">Loyalty, bookings, events, logins - Most Popular!</p>
+            <div class="fast-track-option">
+              <p class="fast-track-text">Need it faster? <strong>+£200 for fast track</strong> delivery</p>
+            </div>
+            <ul class="pricing-features">
+              <li>Everything in Starter</li>
+              <li>Customer login system</li>
+              <li>Express backend + database</li>
+              <li>One key feature (loyalty, booking, events, etc.)</li>
+              <li>Simple admin dashboard</li>
+              <li>Up to 8 app screens</li>
+              <li>30 days support</li>
+            </ul>
+          </div>
+
+          <div class="pricing-tier">
+            <h4>Custom App</h4>
+            <div style="font-size: 1.5rem; font-weight: 600; color: #64748b; margin-bottom: 8px;">Contact for Quote</div>
+            <p class="price-description">Businesses needing more screens, features, or custom designs</p>
+            <ul class="pricing-features">
+              <li>Everything in Business App</li>
+              <li>Fully tailored branding and layout</li>
+              <li>More than one advanced feature</li>
+              <li>Extended admin panel or integrations</li>
+              <li>60 days support</li>
+              <li>Timeline and price agreed after scoping</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Ongoing Support Section -->
+        <div style="margin: 60px 0;">
+          <h3 style="font-size: 1.75rem; margin-bottom: 30px; color: #1e293b; font-weight: 600; text-align: center;">Ongoing Support</h3>
+          <div class="pricing-tier featured" style="width: 100%; max-width: none; margin: 0; padding: 40px;">
+            <div style="display: flex; align-items: flex-start; gap: 60px; justify-content: space-between;">
+              <!-- Left side: Title and pricing options -->
+              <div style="flex: 1; text-align: center;">
+                <h4 style="font-size: 1.5rem; margin-bottom: 24px; color: #1e293b;">Hosting & Maintenance</h4>
+                <div style="display: flex; gap: 32px; justify-content: center; margin-bottom: 0;">
+                  <div class="price-option" style="flex: 0 0 auto;">
+                    <div class="price" style="font-size: 2rem; margin-bottom: 8px;">£20<span style="font-size: 1rem;">/month</span></div>
+                    <p class="price-description" style="margin: 0; font-size: 0.9rem;">Monthly plan</p>
+                  </div>
+                  <div class="price-option popular" style="flex: 0 0 auto;">
+                    <div class="price" style="font-size: 2rem; margin-bottom: 8px;">£150<span style="font-size: 1rem;">/year</span></div>
+                    <p class="price-description" style="margin: 0; font-size: 0.9rem;">Annual (save £90)</p>
+                    <span class="savings">Best Value</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right side: Features -->
+              <div style="flex: 1;">
+                <ul class="pricing-features" style="margin: 0; padding: 0;">
+                  <li>Server hosting and maintenance</li>
+                  <li>App store updates</li>
+                  <li>Security monitoring</li>
+                  <li>Performance optimization</li>
+                  <li>Technical support</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Optional Add-Ons Section -->
+        <div style="margin: 60px 0;">
+          <h3 style="font-size: 1.75rem; margin-bottom: 30px; color: #1e293b; font-weight: 600;">Optional Add-Ons (One-Off)</h3>
+          <div class="features-grid">
+            <div class="feature-card">
+              <h4>Loyalty Points System</h4>
+              <p><strong>£300</strong> - Complete customer loyalty and rewards system</p>
+            </div>
+
+            <div class="feature-card">
+              <h4>Table Booking / Appointments</h4>
+              <p><strong>£300</strong> - Full booking system with calendar integration</p>
+            </div>
+            <div class="feature-card">
+              <h4>Stripe Payment Integration</h4>
+              <p><strong>£400</strong> - Secure payment processing for your app</p>
+            </div>
+            <div class="feature-card">
+              <h4>Extra Screens</h4>
+              <p><strong>£300</strong> - Additional app screens and functionality</p>
+            </div>
+            <div class="feature-card">
+              <h4>Push Notifications</h4>
+              <p><strong>£250</strong> - Keep customers engaged with targeted messages</p>
+            </div>
+            <div class="feature-card">
+              <h4>App Updates / Feature Tweaks</h4>
+              <p><strong>Custom Quote</strong> - Ongoing improvements and new features</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pricing-footer">
+          <p>Ready to get your business on the App Store and Google Play? No technical skills needed — we handle everything from design to launch.</p>
+          <a href="contact.html" class="contact-cta">Get Your App Started</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-cols">
+        <div>
+          <h4>NooDev8</h4>
+          <p>Smart software solutions for real-world business needs.</p>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <ul>
+            <li>Help Center</li>
+            <li>Documentation</li>
+            <li>Contact Support</li>
+          </ul>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2025 NooDev8. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
