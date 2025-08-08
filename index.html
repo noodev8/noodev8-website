@@ -145,13 +145,13 @@
       border-top: 1px solid #e2e8f0;
     }
 
-    /* HERO */
+    /* HERO (made more compact) */
     .hero {
       background: #BEEEFF;
       background: radial-gradient(at center, #BEEEFF, #1F41AF);
       color: white;
       text-align: center;
-      padding: 50px 20px;
+      padding: 36px 20px;            /* was 50px */
       position: relative;
       overflow: hidden;
     }
@@ -170,34 +170,26 @@
     .hero .container {
       position: relative;
       z-index: 2;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 16px;
-      font-weight: 700;
+      max-width: 760px;              /* narrows line length for more whitespace */
     }
 
     .hero h2 {
-      font-size: 1.375rem;
-      margin-bottom: 16px;
+      font-size: 1.15rem;            /* was 1.375rem */
+      margin-bottom: 10px;           /* tighter spacing */
       color: rgba(255, 255, 255, 0.9);
       font-weight: 500;
     }
 
     .hero p {
-      color: rgba(255, 255, 255, 0.8);
-      margin-bottom: 32px;
-      font-size: 1rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      color: rgba(255, 255, 255, 0.82);
+      margin-bottom: 18px;           /* was 32px */
+      font-size: 0.97rem;            /* slightly smaller */
     }
 
     .hero .btn {
       background-color: white;
       color: #1F41AF;
-      padding: 16px 32px;
+      padding: 12px 22px;            /* slightly smaller button */
       border-radius: 8px;
       font-weight: 600;
       text-decoration: none;
@@ -337,8 +329,6 @@
       color: #92400e;
     }
 
-
-
     /* FOOTER */
     footer {
       background: #1e293b;
@@ -394,23 +384,17 @@
       }
 
       .hero {
-        padding: 60px 0;
+        padding: 32px 16px;     /* smaller on mobile too */
       }
 
-      .hero h1 {
-        font-size: 2.5rem;
-      }
       .hero h2 {
-        font-size: 1.25rem;
-        margin-bottom: 16px;
-      }
-      .hero p {
-        font-size: 1rem;
-        margin-bottom: 24px;
+        font-size: 1.05rem;
+        margin-bottom: 10px;
       }
 
-      .section-title {
-        font-size: 2rem;
+      .hero p {
+        font-size: 0.95rem;
+        margin-bottom: 16px;
       }
 
       .app-card {
@@ -448,11 +432,7 @@
         font-size: 1.5rem;
       }
 
-      .nav-links {
-        display: none;
-      }
-
-      .cta-button {
+      .nav-links, .cta-button {
         display: none;
       }
 
@@ -509,7 +489,6 @@
   <main>
     <section class="products section" id="products">
       <div class="container">
-        
         <div class="app-grid">
           <!-- SplitLeague -->
           <a href="https://play.google.com/store/apps/details?id=com.noodev8.splitleague&hl=en_GB" class="app-card" target="_blank">
@@ -523,9 +502,8 @@
             </div>
             <div class="app-content">
               <h3>SplitLeague</h3>
-              <p>Split League makes it easy to organize friendly leagues and tournaments for any game — from snooker, darts, and board games to video games and beyond.<br>
-<br>
-Create your own league, set custom rules, invite friends, and start playing! <br><br>After each match, simply enter the result and Split League will automatically update standings, calculate points, and generate the latest league table — all in real time.</p>
+              <p>Split League makes it easy to organize friendly leagues and tournaments for any game — from snooker, darts, and board games to video games and beyond.<br><br>
+              Create your own league, set custom rules, invite friends, and start playing! <br><br>After each match, simply enter the result and Split League will automatically update standings, calculate points, and generate the latest league table — all in real time.</p>
               <span class="status available">Available Now</span>
             </div>
           </a>
@@ -542,45 +520,33 @@ Create your own league, set custom rules, invite friends, and start playing! <br
             </div>
             <div class="app-content">
               <h3>SplitDine</h3>
-              <p>Split Dine – Effortless Bill Splitting for Group Meals<br>
-<br>
-              Split Dine makes settling the bill with friends easy and stress free<br>
-              Whether it is a casual lunch or a big dinner event you can split costs fairly with no complicated math and no awkward conversations<br>
-<br>
-              Forget paper receipts and calculator stress<br>
-              Split Dine gives you a fast fair and flexible way to split any group bill<br>
-              Designed to keep dining social not stressful<br>
-<br>
-              Dine together<br>
-              Split smarter<br>
-              Download Split Dine today</p>
+              <p>Split Dine – Effortless Bill Splitting for Group Meals<br><br>
+              Split Dine makes settling the bill with friends easy and stress free. Whether it is a casual lunch or a big dinner event you can split costs fairly with no complicated math and no awkward conversations.<br><br>
+              Forget paper receipts and calculator stress. Split Dine gives you a fast, fair and flexible way to split any group bill — designed to keep dining social, not stressful.<br><br>
+              Dine together. Split smarter. Download Split Dine today.</p>
               <span class="status available">Available Now</span>
             </div>
           </a>
 
-          <!-- coming soon -->
+          <!-- Nook Buffet -->
           <div class="app-card">
             <div class="app-images">
-              <img src="images/placeholder-banner.png" alt="Coming Soon" class="app-banner" />
+              <img src="images/nook.png" alt="nook" class="app-banner" />
               <div class="screenshot-row">
-                <img src="images/placeholder1.png" alt="Screenshot" />
-                <img src="images/placeholder1.png" alt="Screenshot" />
-                <img src="images/placeholder1.png" alt="Screenshot" />
+                <img src="images/nook1.jpg" alt="Screenshot" />
+                <img src="images/nook2.jpg" alt="Screenshot" />
+                <img src="images/nook3.jpg" alt="Screenshot" />
               </div>
             </div>
             <div class="app-content">
-              <h3>The Nook Buffet</h3>
-              <p>Coming soon - an exciting new app that will revolutionize how you discover and enjoy local dining experiences. Stay tuned for more details!</p>
-              <span class="status coming">Coming Soon</span>
+              <h3>Nook Buffet</h3>
+              <p>Located in the heart of Welshpool, Powys, The Nook Buffet app makes it easy to pre-order delicious, freshly prepared buffet lunches for your workplace or event. Perfect for local factories, offices, and gatherings. Whether you’re feeding a small team or a whole shift, The Nook Buffet is your go-to for fresh, convenient, and satisfying food – every time.</p>
+              <span class="status available">Available Now</span>
             </div>
           </div>
         </div>
       </div>
     </section>
-
-
-
-
   </main>
 
   <footer>
