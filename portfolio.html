@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Noodev8</title>
+  <meta name="description" content="Explore our portfolio of custom software solutions. See how we've helped businesses automate processes and build working systems.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #0f172a;
+      --primary-light: #1e293b;
+      --accent: #3b82f6;
+      --accent-light: #60a5fa;
+      --text-primary: #0f172a;
+      --text-secondary: #64748b;
+      --text-muted: #94a3b8;
+      --surface: #ffffff;
+      --surface-alt: #f8fafc;
+      --border: #e2e8f0;
+      --border-light: #f1f5f9;
+      --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--surface);
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    /* NAVIGATION */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light); z-index: 1000;
+    }
+    .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; height: 72px; }
+    .nav-logo { font-weight: 700; font-size: 1.25rem; color: var(--primary); text-decoration: none; }
+    .nav-menu { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-menu a { color: var(--text-secondary); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s ease; }
+    .nav-menu a:hover, .nav-menu a.active { color: var(--primary); }
+    .mobile-menu-btn { display: none; background: none; border: none; padding: 0.5rem; cursor: pointer; }
+    .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: var(--primary); margin: 5px 0; transition: 0.3s; }
+    .mobile-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; background: white; border-bottom: 1px solid var(--border); }
+    .mobile-menu.active { display: block; }
+    .mobile-menu a { display: block; padding: 0.75rem 2rem; color: var(--text-secondary); text-decoration: none; font-weight: 500; }
+
+    /* HERO */
+    .hero-cta {
+      background: var(--gradient-primary); color: white;
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      text-align: center; position: relative; overflow: hidden;
+      padding: 6rem 0;
+    }
+    .hero-cta::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.2) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+    .hero-label {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(59, 130, 246, 0.3); border: 1px solid rgba(59, 130, 246, 0.5);
+      padding: 0.5rem 1rem; border-radius: 100px;
+      font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.95);
+      margin-bottom: 1.5rem;
+    }
+    .hero-label::before { content: '✦'; color: var(--accent-light); }
+    .hero-cta h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.03em; }
+    .hero-cta h1 .highlight { color: var(--accent-light); }
+    .hero-cta p { font-size: 1.2rem; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.7; }
+    .hero-stats {
+      display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat-number { font-size: 2rem; font-weight: 800; color: white; }
+    .hero-stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+
+    /* SECTIONS */
+    .section { padding: 5rem 0; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+
+    /* DARK SECTION */
+    .section-dark {
+      background: var(--gradient-primary);
+      position: relative;
+      overflow: hidden;
+    }
+    .section-dark::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* PORTFOLIO GRID */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    .portfolio-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .portfolio-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+    .portfolio-screenshots {
+      width: 100%;
+      padding: 1rem 1rem 0;
+      background: var(--surface-alt);
+    }
+    .portfolio-screenshots img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .portfolio-content {
+      padding: 1.25rem 1.5rem 1.5rem;
+    }
+    .portfolio-tag {
+      display: inline-block;
+      background: var(--surface-alt);
+      color: var(--accent);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 100px;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .portfolio-content h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+    .portfolio-content p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .portfolio-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: gap 0.2s ease;
+    }
+    .portfolio-link:hover {
+      gap: 0.6rem;
+    }
+
+    /* CTA SECTION */
+    .cta-section { background: var(--gradient-primary); color: white; text-align: center; padding: 6rem 0; }
+    .cta-section h2 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
+    .cta-section p { color: rgba(255,255,255,0.8); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .btn { display: inline-block; padding: 0.875rem 2rem; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.2s ease; }
+    .btn-white { background: white; color: var(--primary); }
+    .btn-white:hover { background: var(--surface-alt); transform: translateY(-2px); }
+
+    /* FOOTER */
+    .footer { background: var(--primary); color: white; padding: 4rem 0 2rem; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer h4 { font-weight: 600; margin-bottom: 1rem; }
+    .footer p { color: rgba(255,255,255,0.7); font-size: 0.95rem; }
+    .footer ul { list-style: none; }
+    .footer ul li { margin-bottom: 0.5rem; }
+    .footer ul a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+    .footer ul a:hover { color: white; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.875rem; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .container { padding: 0 1.25rem; }
+      .nav-menu { display: none; }
+      .mobile-menu-btn { display: block; }
+      .hero-cta { padding: 7rem 0 4rem; min-height: auto; }
+      .hero-cta h1 { font-size: 2rem; }
+      .hero-cta p { font-size: 1rem; }
+      .section { padding: 3rem 0; min-height: auto; }
+      .portfolio-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">Noodev8</a>
+      <ul class="nav-menu">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#process">Process</a></li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#process">Process</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-cta">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-label">Portfolio</div>
+        <h1>Ideas Shipped.<br><span class="highlight">Problems Solved.</span></h1>
+        <p>We're a small product studio that helps businesses turn operational friction into working systems. Fast sprints, clear scope, no fluff — here's what we've built.</p>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- Portfolio Section (LIGHT) -->
+    <section class="section">
+      <div class="container">
+        <div class="portfolio-grid">
+          <!-- Split League -->
+          <div class="portfolio-card">
+            <div class="portfolio-screenshots">
+              <img src="images/splitleagueSC.png" alt="Split League">
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-tag">Mobile App</span>
+              <h3>Split League</h3>
+              <p>Organize friendly leagues and tournaments for any game. Create leagues, invite friends, track standings automatically.</p>
+              <a href="https://play.google.com/store/apps/details?id=com.noodev8.splitleague" target="_blank" class="portfolio-link">View on Play Store →</a>
+            </div>
+          </div>
+
+          <!-- LMS Local -->
+          <div class="portfolio-card">
+            <div class="portfolio-screenshots">
+              <img src="images/lmsScreenshots.png" alt="LMS Local">
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-tag">Mobile App</span>
+              <h3>LMS Local</h3>
+              <p>Last Man Standing football competitions for pubs, clubs, and workplaces. Pick a team each round — survive to win.</p>
+              <a href="https://play.google.com/store/apps/details?id=uk.co.lmslocal.lmslocal_flutter" target="_blank" class="portfolio-link">View on Play Store →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Have a Project in Mind?</h2>
+        <p>Let's discuss how we can help you build the right solution for your business.</p>
+        <a href="index.html#contact" class="btn btn-white">Get in Touch</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>Noodev8</h4>
+          <p>Custom software development for businesses ready to replace manual processes with working systems.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="index.html#services">Process Automation</a></li>
+            <li><a href="index.html#services">MVP Development</a></li>
+            <li><a href="index.html#services">System Integration</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:noodev8@gmail.com">noodev8@gmail.com</a></li>
+            <li><a href="index.html#contact">Start a Project</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Noodev8. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('active');
+    }
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('active'));
+    });
+  </script>
+</body>
+</html>
+
