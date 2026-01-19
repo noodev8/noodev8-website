@@ -116,56 +116,56 @@
     /* PORTFOLIO GRID */
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
     }
     .portfolio-card {
       background: white;
-      border-radius: 16px;
+      border-radius: 12px;
       overflow: hidden;
       box-shadow: var(--shadow-md);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .portfolio-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-xl);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
     }
     .portfolio-screenshots {
       width: 100%;
-      padding: 1rem 1rem 0;
+      padding: 0.75rem 0.75rem 0;
       background: var(--surface-alt);
     }
     .portfolio-screenshots img {
       width: 100%;
       height: auto;
-      border-radius: 8px;
+      border-radius: 6px;
     }
     .portfolio-content {
-      padding: 1.25rem 1.5rem 1.5rem;
+      padding: 0.875rem 1rem 1rem;
     }
     .portfolio-tag {
       display: inline-block;
       background: var(--surface-alt);
       color: var(--accent);
-      font-size: 0.7rem;
+      font-size: 0.6rem;
       font-weight: 600;
-      padding: 0.25rem 0.6rem;
+      padding: 0.2rem 0.5rem;
       border-radius: 100px;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.35rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
     .portfolio-content h3 {
-      font-size: 1.25rem;
+      font-size: 1rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.35rem;
       color: var(--text-primary);
     }
     .portfolio-content p {
       color: var(--text-secondary);
-      font-size: 0.9rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
     }
     .portfolio-link {
       display: inline-flex;
@@ -173,12 +173,89 @@
       gap: 0.35rem;
       color: var(--accent);
       font-weight: 600;
-      font-size: 0.875rem;
+      font-size: 0.75rem;
       text-decoration: none;
       transition: gap 0.2s ease;
     }
     .portfolio-link:hover {
       gap: 0.6rem;
+    }
+
+    /* FEATURED PORTFOLIO CARD */
+    .portfolio-card-featured {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #fef2f2 0%, #fff7ed 50%, #fef3e2 100%);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      align-items: center;
+      position: relative;
+      border: 1px solid rgba(251, 146, 60, 0.15);
+    }
+    .portfolio-card-featured .portfolio-screenshots {
+      background: transparent;
+      padding: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .portfolio-card-featured .portfolio-screenshots img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .portfolio-card-featured .portfolio-content {
+      padding: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .portfolio-card-featured .portfolio-tag {
+      background: rgba(251, 113, 133, 0.15);
+      color: #e11d48;
+      border: 1px solid rgba(251, 113, 133, 0.3);
+    }
+    .portfolio-card-featured .featured-label {
+      display: inline-block;
+      background: linear-gradient(135deg, #fb7185 0%, #f472b6 100%);
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      margin-left: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      vertical-align: middle;
+    }
+    .portfolio-card-featured h3 {
+      font-size: 1.75rem;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+    .portfolio-card-featured p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .portfolio-card-featured .portfolio-link {
+      color: #e11d48;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .portfolio-card-featured {
+        grid-template-columns: 1fr;
+      }
+      .portfolio-card-featured .portfolio-screenshots {
+        padding: 0;
+      }
+      .portfolio-card-featured .portfolio-content {
+        padding: 1.5rem;
+      }
+      .portfolio-card-featured h3 {
+        font-size: 1.4rem;
+      }
     }
 
     /* CTA SECTION */
@@ -209,8 +286,11 @@
       .hero-cta h1 { font-size: 2rem; }
       .hero-cta p { font-size: 1rem; }
       .section { padding: 3rem 0; min-height: auto; }
-      .portfolio-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
       .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (max-width: 480px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -253,6 +333,19 @@
     <section class="section">
       <div class="container">
         <div class="portfolio-grid">
+          <!-- Meet With Friends (Featured) -->
+          <div class="portfolio-card-featured">
+            <div class="portfolio-screenshots">
+              <img src="images/MWF1.png" alt="Meet With Friends">
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-tag">Mobile App</span><span class="featured-label">Flagship</span>
+              <h3>Meet With Friends</h3>
+              <p>The simple way to organise your group. Whether it's dinner, a hike, game night, or coffee — bring your people together without the group chat chaos.</p>
+              <a href="https://meetwithfriends.net" target="_blank" class="portfolio-link">View Website →</a>
+            </div>
+          </div>
+
           <!-- Split League -->
           <div class="portfolio-card">
             <div class="portfolio-screenshots">
